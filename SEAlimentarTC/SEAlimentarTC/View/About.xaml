@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SEAlimentarTC.View.About"
+             Title="Sobre">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    <Label Text="SEAlimentar" FontSize="30" TextColor="White" FontAttributes="Bold"></Label>
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <Label Text="Sistema Especialista para Alimentação Saudável" HorizontalTextAlignment="Center" FontSize="Title" FontAttributes="Bold"/>
+                <Label></Label>
+                <Label Text="Aplicativo desenvolvido pelo aluno Wiliam Kern Franco e Orientado pela professora Dra. Daniela Duarte da Silva Bagatini" FontSize="16" Padding="0,0,0,0"/>
+                <Label Text="Sistema com foco na obtenção e controle de hábitos alimentares saudáveis. Onde sua base de conhecimento foi obtida com auxílio da Dra. Fabiani Assman Poll (trabalho co-orientado pela mesma)" FontSize="16" Padding="0,0,0,0"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

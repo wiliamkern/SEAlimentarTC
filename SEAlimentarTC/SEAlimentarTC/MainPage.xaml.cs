@@ -14,5 +14,20 @@ namespace SEAlimentarTC
         {
             InitializeComponent();
         }
+
+        private async void GetAboutView(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new View.About());
+        }
+
+        private async void GetConfigurationView(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new View.Config());
+        }
+
+        private async void GetGenerateFoodMenuView(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new View.GenerateFoodMenus());
+        }
     }
 }

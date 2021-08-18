@@ -10,7 +10,13 @@ namespace SEAlimentarTC
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            var pagina = new NavigationPage(
+                 new MainPage()
+                 );
+
+            // MainPage = new MainPage();
+
+            MainPage = pagina;
         }
 
         protected override void OnStart()
