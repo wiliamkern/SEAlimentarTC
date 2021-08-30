@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
+[assembly: ExportFont("arial-rounded-mt-bold.ttf", Alias = "ArialRoundedMT")]
+
 namespace SEAlimentarTC
 {
     public partial class MainPage : ContentPage

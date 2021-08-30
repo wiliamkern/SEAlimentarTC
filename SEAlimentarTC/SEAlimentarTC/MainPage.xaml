@@ -1,29 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+    
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SEAlimentarTC.MainPage">
 
+    <ContentPage.Resources> <!-- Busca o estilo -->
+        <StyleSheet Source="Others/css/style.css" />
+    </ContentPage.Resources>
+    
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="10" HeightRequest="150" >
-            <Label Text="SEAlimentar" HorizontalTextAlignment="Center" TextColor="White" FontSize="26"/>
+
+        <Frame StyleClass="retangulo1" class="retangulo1" HeightRequest="300" >
+            <Label Text="SE Alimentar" HorizontalTextAlignment="Center" FontSize="49" FontAttributes="Bold" TextColor="#FFFFFFFF" />
         </Frame>
 
-        <Grid RowSpacing="10" ColumnSpacing="10" HeightRequest="300" Padding="40">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+        <Frame StyleClass="retanguloCinza">
+            <Grid RowSpacing="10" ColumnSpacing="10" HeightRequest="300" Padding="40">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0" BackgroundColor="Green" Text="Gerar Cardápios" Clicked="GetGenerateFoodMenuView" TextColor="White" FontSize="16" HeightRequest="100" CornerRadius="20"/>
-            <Button Grid.Row="0" Grid.Column="1" BackgroundColor="Brown" Text="Sobre" TextColor="White" Clicked="GetAboutView" HeightRequest="100" FontSize="16" CornerRadius="20"/>
-            <Button Grid.Row="1" Grid.Column="0" BackgroundColor="LightGray" Text="Configurações" Clicked="GetConfigurationView" HeightRequest="100" FontSize="16" CornerRadius="20"/>
-        </Grid>
-
+                <Button Grid.Row="0" Grid.Column="0" BackgroundColor="#FF2C7733" Text="Gerar Cardápios" Clicked="GetGenerateFoodMenuView" TextColor="White" FontAttributes="Bold" HeightRequest="100" CornerRadius="20"/>
+                <Button Grid.Row="0" Grid.Column="1" BackgroundColor="#FF2C7733" Text="Sobre" TextColor="White" Clicked="GetAboutView" HeightRequest="100" FontAttributes="Bold"  CornerRadius="20"/>
+                <Button Grid.Row="1" Grid.Column="0" BackgroundColor="#FF2C7733" Text="Configurações" Clicked="GetConfigurationView" HeightRequest="100" FontAttributes="Bold"  CornerRadius="20"/>
+            </Grid>
+        </Frame>
     </StackLayout>
 
 </ContentPage>
