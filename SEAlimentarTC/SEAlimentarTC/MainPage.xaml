@@ -2,35 +2,44 @@
     
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SEAlimentarTC.MainPage">
+             x:Class="SEAlimentarTC.MainPage"
+             Visual="Material">
 
     <ContentPage.Resources> <!-- Busca o estilo -->
         <StyleSheet Source="Others/css/style.css" />
     </ContentPage.Resources>
-    
-    <StackLayout>
 
-        <Frame StyleClass="retangulo1" class="retangulo1" HeightRequest="300" >
-            <Label Text="SE Alimentar" HorizontalTextAlignment="Center" FontSize="49" FontAttributes="Bold" TextColor="#FFFFFFFF" />
-        </Frame>
+    <ScrollView>
+        <StackLayout>
 
-        <Frame StyleClass="retanguloCinza">
-            <Grid RowSpacing="10" ColumnSpacing="10" HeightRequest="300" Padding="40">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+            <Frame StyleClass="retangulo1" class="retangulo1" HeightRequest="200" TranslationY="-45" CornerRadius="50" BackgroundColor="#1A9D34">
+                    <Label Text="SE Alimentar" HorizontalTextAlignment="Center" FontSize="49" TranslationY="100"  FontAttributes="Bold" TextColor="white" />
+            </Frame>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+            <Label Text="Opções" HorizontalTextAlignment="Start" TranslationY="-45" FontSize="23" Margin="35,10,0,0" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
 
-                <Button Grid.Row="0" Grid.Column="0" BackgroundColor="#FF2C7733" Text="Gerar Cardápios" Clicked="GetGenerateFoodMenuView" TextColor="White" FontAttributes="Bold" HeightRequest="100" CornerRadius="20"/>
-                <Button Grid.Row="0" Grid.Column="1" BackgroundColor="#FF2C7733" Text="Sobre" TextColor="White" Clicked="GetAboutView" HeightRequest="100" FontAttributes="Bold"  CornerRadius="20"/>
-                <Button Grid.Row="1" Grid.Column="0" BackgroundColor="#FF2C7733" Text="Configurações" Clicked="GetConfigurationView" HeightRequest="100" FontAttributes="Bold"  CornerRadius="20"/>
-            </Grid>
-        </Frame>
-    </StackLayout>
+            <Frame StyleClass="retanguloCinza" Margin="30,5,30,30" TranslationY="-45" HeightRequest="300">
+                <Grid ColumnSpacing="10" HeightRequest="260" WidthRequest="300" Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Row="0" Grid.Column="0" BackgroundColor="#FF2C7733" FontSize="15" Text="Cardápios" Clicked="GetGenerateFoodMenuView" FontFamily="ArialRoundedMT" TextColor="White" FontAttributes="Bold" HeightRequest="100" CornerRadius="20"/>
+                    <Button Grid.Row="1" Grid.Column="0" BackgroundColor="#FF2C7733" FontSize="15" Text="Dados Pessoais" Clicked="GetConfigurationView" FontFamily="ArialRoundedMT" HeightRequest="100" TextColor="White" FontAttributes="Bold"  CornerRadius="20"/>
+                    <Button Grid.Row="0" Grid.Column="1" BackgroundColor="#FF2C7733" FontSize="15" Text="Notificações" TextColor="White" Clicked="GetAboutView" FontFamily="ArialRoundedMT"  HeightRequest="100" FontAttributes="Bold"  CornerRadius="20"/>
+                    <Button Grid.Row="1" Grid.Column="1" BackgroundColor="#FF2C7733" FontSize="15" Text="Sobre" TextColor="White" Clicked="GetAboutView" FontFamily="ArialRoundedMT"  HeightRequest="100" FontAttributes="Bold"  CornerRadius="20"/>
+                </Grid>
+            </Frame>
+
+            <Button BackgroundColor="#E6E6E6" TranslationY="-50" Text="Ler termos de uso" FontSize="16" Margin="30,0,30,0" TextColor="#505050" FontFamily="ArialRoundedMT" HeightRequest="60" FontAttributes="Bold" CornerRadius="30"/>
+
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>

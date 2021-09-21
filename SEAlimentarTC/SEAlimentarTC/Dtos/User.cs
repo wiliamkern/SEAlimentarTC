@@ -1,18 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace SEAlimentarTC.Dtos
 {
-    class User
+    public class User
     {
-        public int ID { get; set; }
+        [Key]
+        public int UserID { get; set; }
+
+        //  [Column("Name", TypeName = "varchar(30)")]
         public string Name { get; set; }
-        public int Age { get; set; }
-        public DateTime Birthday { get; set; }
-        public decimal Height { get; set; }
-        public bool Sex { get; set; }
-        public decimal Weight { get; set; }
-        public decimal Imc { get; set; }
+        //
+        //      [Column("Age", TypeName = "integer(3)")]
+        public int? Age { get; set; }
+
+        //     [Column("Height", TypeName = "decimal(1,2)")]
+        public decimal? Height { get; set; }
+
+        //   [Column("Sex", TypeName = "char(1)")]
+        public string Sex { get; set; }
+
+        // [Column("Weight", TypeName = "decimal(3,2)")]
+        public decimal? Weight { get; set; }
+
+        // [Column("Imc", TypeName = "decimal(2,2)")]
+        public decimal? Imc { get; set; }
     }
 }

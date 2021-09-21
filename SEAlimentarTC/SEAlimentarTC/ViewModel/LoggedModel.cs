@@ -7,18 +7,20 @@ using Xamarin.Forms;
 
 namespace SEAlimentarTC.Model
 {
-    class LoggedModel : UserModel
+    class LoggedModel : User
     {
+        /**
+         * Guarda os dados do usuário numa sessão para reutilizar onde for necessário
+         * **/
         public static User LoggedUser
         {
             get
             {
-                return new User();
+                return (User)Application.Current.Properties["UserSession"];
             }
             set
             {
-              
-                
+                Application.Current.Properties["UserSession"] = value;
             }
         }
     }

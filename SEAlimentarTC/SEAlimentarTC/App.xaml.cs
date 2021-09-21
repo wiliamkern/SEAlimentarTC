@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using SEAlimentarTC.Dtos;
+using SEAlimentarTC.Model;
+using SEAlimentarTC.Repository;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,8 +17,6 @@ namespace SEAlimentarTC
             var pagina = new NavigationPage(
                  new MainPage()
                  );
-
-            // MainPage = new MainPage();
 
             MainPage = pagina;
         }
