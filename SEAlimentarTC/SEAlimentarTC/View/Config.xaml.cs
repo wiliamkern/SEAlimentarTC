@@ -46,9 +46,14 @@ namespace SEAlimentarTC.View
         //    bool Updated = await new UserModel().UpdateUserAsync(user);
 
          //   if (!Updated)
-             bool atualizado = await new UserModel().InsertUseAsync(user);
+             if(await new UserModel().InsertUseAsync(user))
+            {
+                await App.Current.MainPage.DisplayAlert("", "Dados salvos com sucesso!", "Fechar");
+            }
 
-
+            UserModel model = new UserModel();
+            User userLlt = await model.GetUserAsync(1);
+            var a = 1;
 
         }
     }

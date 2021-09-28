@@ -21,11 +21,6 @@ namespace SEAlimentarTC.Repository
             return await AppDataBase.User.FindAsync(Id);
         }
 
-      /*  public async Task<List<User>> GetList(int ID = 0)
-        {
-            return AppDataBase.User.Where(w => w.Id == ID).ToList();
-        }*/
-
         /**
          * Faz a inserção dos dados de usuário
          * **/
