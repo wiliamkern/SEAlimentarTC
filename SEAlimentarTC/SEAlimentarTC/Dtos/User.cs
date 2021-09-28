@@ -29,6 +29,5 @@ namespace SEAlimentarTC.Dtos
 
         // [Column("Imc", TypeName = "decimal(2,2)")]
         public decimal? Imc { get; set; }
-        public object Id { get; internal set; }
     }
 }
