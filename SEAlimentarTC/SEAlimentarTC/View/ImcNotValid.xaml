@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SEAlimentarTC.View.ImcNotValid"
+             NavigationPage.HasBackButton="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout BackgroundColor="#1A9D34" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,20,0,50" VerticalOptions="FillAndExpand">
+                    <Label Text="SE Alimentar" FontSize="30" TextColor="White" FontAttributes="Bold"></Label>
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <Label>ATENÇÃO:</Label>
+                <Label FontSize="16">
+                    A aplicação destina-se apenas por pessoas com IMC Normal ou sobrepeso, demais casos indicamos realizar um acompanhamento com profissional da área de Nutrição.
+                </Label>
+            </StackLayout>
+        </ScrollView>
+        
+        <StackLayout Grid.Row="2">
+            <Button BackgroundColor="#E6E6E6" Text="Sair" Clicked="CloseApp" FontSize="16" Margin="30,0,30,0" TextColor="#505050" FontFamily="ArialRoundedMT" WidthRequest="5" HeightRequest="60" FontAttributes="Bold" CornerRadius="30"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

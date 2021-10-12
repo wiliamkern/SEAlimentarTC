@@ -14,7 +14,7 @@ namespace SEAlimentarTC.Repository
 
         public UserContext() // se o banco existe não faz nada, senão cria ele
         {
-            Database.EnsureDeleted();
+           // Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 

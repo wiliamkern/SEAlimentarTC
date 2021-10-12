@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
              x:Class="SEAlimentarTC.View.Config"
              Title="Informações"
              Visual="Material">
@@ -10,15 +11,24 @@
         <ScrollView>
             <Frame BackgroundColor="#E6E6E6" CornerRadius="30" Padding="10"  HasShadow="True" Margin="30">
                 <StackLayout>
+                    
                     <Label Text="Dados Pessoais" FontAttributes="Bold" FontSize="23" HorizontalTextAlignment="Start" Padding="10"/>
 
-                    <Entry x:Name="Name" Placeholder="Informe o seu nome" FontFamily="ArialRoundedMT" BackgroundColor="#E6E6E6" MaxLength="30" />
+                    <Entry x:Name="Name" Text="{Binding Name}" Placeholder="Informe o seu nome" FontFamily="ArialRoundedMT" BackgroundColor="#E6E6E6" MaxLength="30" />
 
-                    <Entry x:Name="Age" Placeholder="Informe a sua idade" MaxLength="2" FontFamily="ArialRoundedMT" BackgroundColor="#E6E6E6" />
+                    <Entry x:Name="Age" Text="{Binding Age}" Keyboard="Numeric" Placeholder="Informe a sua idade" MaxLength="2" FontFamily="ArialRoundedMT" BackgroundColor="#E6E6E6" />
 
-                    <Entry x:Name="Height" Placeholder="Informe a sua altura" MaxLength="4" FontFamily="ArialRoundedMT" BackgroundColor="#E6E6E6" />
+                    <Entry x:Name="Height" Text="{Binding Height}" Placeholder="Informe a sua altura" MaxLength="4" FontFamily="ArialRoundedMT" BackgroundColor="#E6E6E6" >
+                        <Entry.Behaviors>
+                            <behaviorPack:MaskedBehavior Mask="X,XX" />
+                        </Entry.Behaviors>
+                    </Entry>
 
-                    <Entry x:Name="Weight" Placeholder="Informe o seu peso" MaxLength="6" FontFamily="ArialRoundedMT" BackgroundColor="#E6E6E6" />
+                    <Entry x:Name="Weight" Text="{Binding Weight}" Placeholder="Informe o seu peso" MaxLength="6" FontFamily="ArialRoundedMT" BackgroundColor="#E6E6E6" >
+                        <Entry.Behaviors>
+                            <behaviorPack:MaskedBehavior Mask="XX,XXX" />
+                        </Entry.Behaviors>
+                    </Entry>
 
                     <StackLayout Orientation="Horizontal" Margin="10,0,0,5" HorizontalOptions="Center">
                         <Label Text="Masculino" FontSize="Medium" VerticalOptions="Center"/>
@@ -28,7 +38,7 @@
                         <CheckBox IsChecked="false" CheckedChanged="SexF_CheckedChanged" x:Name="SexF" VerticalOptions="Center"/>
                     </StackLayout>
 
-                    <Label FontSize="20" Text="Seu IMC é" Margin="0,0,0,20" HorizontalOptions="CenterAndExpand" />
+                    <Label FontSize="20" Text="{Binding ImcFormatted}" Margin="0,0,0,20" HorizontalOptions="CenterAndExpand" />
 
                     <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
                         <Button Text="Salvar" WidthRequest="250" FontFamily="ArialRoundedMT" Clicked="SaveData" HeightRequest="60" BackgroundColor="#2C7733" CornerRadius="30"/>

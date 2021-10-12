@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace SEAlimentarTC.Model
+namespace SEAlimentarTC.Repository
 {
-    class LoggedModel : User
+    public class LoggedModel : User
     {
         /**
          * Guarda os dados do usuário numa sessão para reutilizar onde for necessário

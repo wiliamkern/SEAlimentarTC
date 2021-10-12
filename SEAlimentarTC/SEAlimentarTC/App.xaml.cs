@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SEAlimentarTC.Dtos;
-using SEAlimentarTC.Model;
 using SEAlimentarTC.Repository;
+using SEAlimentarTC.ViewModel;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,6 +20,14 @@ namespace SEAlimentarTC
                  );
 
             MainPage = pagina;
+
+            Task.Run(async () =>
+            {
+                User user = new User();
+                user = await new UserModel().GetUserAsync(1);
+
+                LoggedModel.LoggedUser = user; // salva os dados na sessão
+            });
         }
 
         protected override void OnStart()
