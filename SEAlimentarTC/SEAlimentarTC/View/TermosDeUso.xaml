@@ -41,14 +41,18 @@ Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
             </StackLayout>
         </ScrollView>
 
-        <StackLayout Orientation="Horizontal" Margin="10,0,0,0" HorizontalOptions="Center">
+        <StackLayout x:Name="checkTerms" Orientation="Horizontal" Margin="10,0,0,0" HorizontalOptions="Center">
             <CheckBox IsChecked="false" x:Name="AcceptUseTerms" VerticalOptions="Center"/>
             <Label Text="Aceitar termos de uso" FontSize="Medium" VerticalOptions="Center"/>
         </StackLayout>
         <Label TextColor="Red" IsVisible="False" x:Name="errorUseTerms" FontAttributes="Bold" HorizontalOptions="Center" FontSize="15">Você precisa aceitar os termos de uso para continuar</Label>
 
-        <StackLayout VerticalOptions="Center">
+        <StackLayout VerticalOptions="Center" x:Name="btnContinue">
             <Button BackgroundColor="#FF2C7733" Text="Continuar" Clicked="AcceptTerms" FontSize="16" Margin="30,0,30,0" TextColor="White" FontFamily="ArialRoundedMT" WidthRequest="5" HeightRequest="60" FontAttributes="Bold" CornerRadius="30"/>
+        </StackLayout>
+
+        <StackLayout VerticalOptions="Center" x:Name="btnReturn">
+            <Button BackgroundColor="#FF2C7733" Text="Voltar" Clicked="Voltar" FontSize="16" Margin="30,0,30,0" TextColor="White" FontFamily="ArialRoundedMT" WidthRequest="5" HeightRequest="60" FontAttributes="Bold" CornerRadius="30"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

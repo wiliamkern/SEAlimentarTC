@@ -23,5 +23,6 @@ namespace SEAlimentarTC.Dtos
         public DateTime? UpdateDate { get; set; }
 
         public bool? CanUse { get; set; }
+        User User { get; set; }
     }
 }

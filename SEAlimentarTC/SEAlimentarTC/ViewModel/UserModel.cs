@@ -10,11 +10,11 @@ namespace SEAlimentarTC.ViewModel
 {
     public class UserModel
     {
-        private UserContext AppDataBase { get; set; }
+        private AppDbContext AppDataBase { get; set; }
 
         public UserModel()
         {
-            AppDataBase = new UserContext();
+            AppDataBase = new AppDbContext();
         }
 
         public async Task<User> GetUserAsync(int Id)

@@ -8,7 +8,8 @@ namespace SEAlimentarTC.Dtos
 {
     public class User
     {
-        public int ID { get; set; }
+        [Key]
+        public int UserID { get; set; }
 
         //  [Column("Name", TypeName = "varchar(30)")]
         public string Name { get; set; }

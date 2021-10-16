@@ -37,7 +37,7 @@
                 </Grid>
             </Frame>
 
-            <Button BackgroundColor="#E6E6E6" TranslationY="-50" Text="Ler termos de uso" FontSize="16" Margin="30,0,30,0" TextColor="#505050" FontFamily="ArialRoundedMT" HeightRequest="60" FontAttributes="Bold" CornerRadius="30"/>
+            <Button BackgroundColor="#E6E6E6" TranslationY="-50" Clicked="ReadUserTerms" Text="Ler termos de uso" FontSize="16" Margin="30,0,30,0" TextColor="#505050" FontFamily="ArialRoundedMT" HeightRequest="60" FontAttributes="Bold" CornerRadius="30"/>
 
         </StackLayout>
     </ScrollView>
