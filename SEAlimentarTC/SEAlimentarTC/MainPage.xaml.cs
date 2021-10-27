@@ -25,7 +25,7 @@ namespace SEAlimentarTC
             Task.Run(() =>
             { 
                 Device.BeginInvokeOnMainThread(async () =>
-                { 
+                {
                     User user = await new UserModel().GetUserAsync(1);
 
                     if (user == null)

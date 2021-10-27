@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SEAlimentarTC.Migrations
 {
-    public partial class DataBaseV1 : Migration
+    public partial class BancoV1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,138 +47,132 @@ namespace SEAlimentarTC.Migrations
                 name: "AfterDinner",
                 columns: table => new
                 {
-                    AfterDinnerID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    AfterDinnerID = table.Column<int>(nullable: false),
+                    FoodMenuID = table.Column<int>(nullable: false),
                     ItemName = table.Column<string>(nullable: true),
                     IsChecked = table.Column<bool>(nullable: false),
                     InsertDate = table.Column<DateTime>(nullable: true),
-                    UpdateDate = table.Column<DateTime>(nullable: true),
-                    FoodMenuID = table.Column<int>(nullable: true)
+                    UpdateDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AfterDinner", x => x.AfterDinnerID);
+                    table.PrimaryKey("PK_AfterDinner", x => new { x.AfterDinnerID, x.FoodMenuID });
                     table.ForeignKey(
                         name: "FK_AfterDinner_FoodMenu_FoodMenuID",
                         column: x => x.FoodMenuID,
                         principalTable: "FoodMenu",
                         principalColumn: "FoodMenuID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "AfternoonSnack",
                 columns: table => new
                 {
-                    AfternoonSnackID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    AfternoonSnackID = table.Column<int>(nullable: false),
+                    FoodMenuID = table.Column<int>(nullable: false),
                     ItemName = table.Column<string>(nullable: true),
                     IsChecked = table.Column<bool>(nullable: false),
                     InsertDate = table.Column<DateTime>(nullable: true),
-                    UpdateDate = table.Column<DateTime>(nullable: true),
-                    FoodMenuID = table.Column<int>(nullable: true)
+                    UpdateDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AfternoonSnack", x => x.AfternoonSnackID);
+                    table.PrimaryKey("PK_AfternoonSnack", x => new { x.AfternoonSnackID, x.FoodMenuID });
                     table.ForeignKey(
                         name: "FK_AfternoonSnack_FoodMenu_FoodMenuID",
                         column: x => x.FoodMenuID,
                         principalTable: "FoodMenu",
                         principalColumn: "FoodMenuID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Breakfest",
                 columns: table => new
                 {
-                    BreakfestID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    BreakfestID = table.Column<int>(nullable: false),
+                    FoodMenuID = table.Column<int>(nullable: false),
                     ItemName = table.Column<string>(nullable: true),
                     IsChecked = table.Column<bool>(nullable: false),
                     InsertDate = table.Column<DateTime>(nullable: true),
-                    UpdateDate = table.Column<DateTime>(nullable: true),
-                    FoodMenuID = table.Column<int>(nullable: true)
+                    UpdateDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Breakfest", x => x.BreakfestID);
+                    table.PrimaryKey("PK_Breakfest", x => new { x.BreakfestID, x.FoodMenuID });
                     table.ForeignKey(
                         name: "FK_Breakfest_FoodMenu_FoodMenuID",
                         column: x => x.FoodMenuID,
                         principalTable: "FoodMenu",
                         principalColumn: "FoodMenuID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Dinner",
                 columns: table => new
                 {
-                    DinnerID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    DinnerID = table.Column<int>(nullable: false),
+                    FoodMenuID = table.Column<int>(nullable: false),
                     ItemName = table.Column<string>(nullable: true),
                     IsChecked = table.Column<bool>(nullable: false),
                     InsertDate = table.Column<DateTime>(nullable: true),
-                    UpdateDate = table.Column<DateTime>(nullable: true),
-                    FoodMenuID = table.Column<int>(nullable: true)
+                    UpdateDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Dinner", x => x.DinnerID);
+                    table.PrimaryKey("PK_Dinner", x => new { x.DinnerID, x.FoodMenuID });
                     table.ForeignKey(
                         name: "FK_Dinner_FoodMenu_FoodMenuID",
                         column: x => x.FoodMenuID,
                         principalTable: "FoodMenu",
                         principalColumn: "FoodMenuID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Lunch",
                 columns: table => new
                 {
-                    LunchID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    LunchID = table.Column<int>(nullable: false),
+                    FoodMenuID = table.Column<int>(nullable: false),
                     ItemName = table.Column<string>(nullable: true),
                     IsChecked = table.Column<bool>(nullable: false),
                     InsertDate = table.Column<DateTime>(nullable: true),
-                    UpdateDate = table.Column<DateTime>(nullable: true),
-                    FoodMenuID = table.Column<int>(nullable: true)
+                    UpdateDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Lunch", x => x.LunchID);
+                    table.PrimaryKey("PK_Lunch", x => new { x.LunchID, x.FoodMenuID });
                     table.ForeignKey(
                         name: "FK_Lunch_FoodMenu_FoodMenuID",
                         column: x => x.FoodMenuID,
                         principalTable: "FoodMenu",
                         principalColumn: "FoodMenuID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "MorningSnack",
                 columns: table => new
                 {
-                    MorningSnackID = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    MorningSnackID = table.Column<int>(nullable: false),
+                    FoodMenuID = table.Column<int>(nullable: false),
                     ItemName = table.Column<string>(nullable: true),
                     IsChecked = table.Column<bool>(nullable: false),
                     InsertDate = table.Column<DateTime>(nullable: true),
-                    UpdateDate = table.Column<DateTime>(nullable: true),
-                    FoodMenuID = table.Column<int>(nullable: true)
+                    UpdateDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MorningSnack", x => x.MorningSnackID);
+                    table.PrimaryKey("PK_MorningSnack", x => new { x.MorningSnackID, x.FoodMenuID });
                     table.ForeignKey(
                         name: "FK_MorningSnack_FoodMenu_FoodMenuID",
                         column: x => x.FoodMenuID,
                         principalTable: "FoodMenu",
                         principalColumn: "FoodMenuID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -237,6 +231,9 @@ namespace SEAlimentarTC.Migrations
 
             migrationBuilder.DropTable(
                 name: "FoodMenu");
+
+            migrationBuilder.DropTable(
+                name: "_EFMigrationsHistory");
         }
     }
 }

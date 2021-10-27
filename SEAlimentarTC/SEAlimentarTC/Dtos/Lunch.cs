@@ -7,6 +7,7 @@ namespace SEAlimentarTC.Dtos
     public class Lunch
     {
         public int LunchID { get; set; }
+        public int FoodMenuID { get; set; }
 
         public string ItemName { get; set; }
 

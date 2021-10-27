@@ -11,19 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\**" />
-    <EmbeddedResource Remove="Migrations\**" />
-    <None Remove="Migrations\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Others\font\arial-rounded-mt-bold.ttf" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Migrations\20211027015104_DataBaseV1.cs" />
-    <Compile Include="Migrations\20211027015104_DataBaseV1.Designer.cs" />
-    <Compile Include="Migrations\AppDbContextModelSnapshot.cs" />
   </ItemGroup>
 
   <ItemGroup>

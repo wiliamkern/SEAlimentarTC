@@ -30,27 +30,26 @@ namespace SEAlimentarTC.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // criação de chave composta
-            /* modelBuilder.Entity<Breakfest>()
-                 .HasKey(c => new { c.BreakfestID, c.BreakfestItemID });*/
+            base.OnModelCreating(modelBuilder);
 
+            // criação de chave composta só pelo API Fluent
             modelBuilder.Entity<Breakfest>()
-               .HasKey(c => new { c.BreakfestID });
+               .HasKey(c => new { c.BreakfestID, c.FoodMenuID });
 
             modelBuilder.Entity<MorningSnack>()
-               .HasKey(c => new { c.MorningSnackID });
+               .HasKey(c => new { c.MorningSnackID, c.FoodMenuID });
 
             modelBuilder.Entity<Lunch>()
-               .HasKey(c => new { c.LunchID });
+               .HasKey(c => new { c.LunchID, c.FoodMenuID });
 
             modelBuilder.Entity<AfternoonSnack>()
-               .HasKey(c => new { c.AfternoonSnackID });
+               .HasKey(c => new { c.AfternoonSnackID, c.FoodMenuID });
 
             modelBuilder.Entity<Dinner>()
-               .HasKey(c => new { c.DinnerID });
+               .HasKey(c => new { c.DinnerID, c.FoodMenuID });
 
             modelBuilder.Entity<AfterDinner>()
-              .HasKey(c => new { c.AfterDinnerID });
+              .HasKey(c => new { c.AfterDinnerID, c.FoodMenuID });
 
         }
     }

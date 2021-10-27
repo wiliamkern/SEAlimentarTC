@@ -83,7 +83,7 @@ namespace SEAlimentarTC.View
                 else
                 {
                     user.InsertDate = DateTime.Now;
-                    if (await new UserModel().InsertUseAsync(user))
+                    if (new UserModel().InsertUseAsync(user))
                         await App.Current.MainPage.DisplayAlert("", "Dados salvos com sucesso!", "Fechar");
                     else
                         await App.Current.MainPage.DisplayAlert("", "Não foi possível salvar os dados", "Fechar");

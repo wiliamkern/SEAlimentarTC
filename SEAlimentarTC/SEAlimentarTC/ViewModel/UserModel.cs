@@ -19,16 +19,18 @@ namespace SEAlimentarTC.ViewModel
 
         public async Task<User> GetUserAsync(int Id)
         {
+            /*AppDataBase.User.RemoveRange(AppDataBase.User);
+            AppDataBase.SaveChanges();*/
             return await AppDataBase.User.FindAsync(Id);
         }
 
         /**
          * Faz a inserção dos dados de usuário
          * **/
-        public async Task<bool> InsertUseAsync(User user)
+        public bool InsertUseAsync(User user)
         {
             AppDataBase.User.Add(user);
-            int lines = await AppDataBase.SaveChangesAsync(); // lines == linhas afetadas, se houver linhas afetadas retorna true, senão false
+            int lines = AppDataBase.SaveChanges(); // lines == linhas afetadas, se houver linhas afetadas retorna true, senão false
 
             return lines > 0 ? true : false;
         }
@@ -52,6 +54,19 @@ namespace SEAlimentarTC.ViewModel
             User user = await GetUserAsync(Id);
 
             AppDataBase.User.Remove(user);
+            int lines = await AppDataBase.SaveChangesAsync();
+
+            return lines > 0 ? true : false;
+        }
+
+        /**
+         * Faz o delete de todos usuários
+         * **/
+        public async Task<bool> DeleteAllUsersAsync()
+        {
+            var itemsToDelete = AppDataBase.Set<User>();
+            AppDataBase.User.RemoveRange(itemsToDelete);
+
             int lines = await AppDataBase.SaveChangesAsync();
 
             return lines > 0 ? true : false;

@@ -9,6 +9,7 @@ namespace SEAlimentarTC.Dtos
     public class Breakfest
     {
         public int BreakfestID { get; set; }
+        public int FoodMenuID { get; set; }
 
         public string ItemName { get; set; }
 

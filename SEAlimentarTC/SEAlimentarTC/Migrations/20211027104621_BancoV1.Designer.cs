@@ -9,8 +9,8 @@ using SEAlimentarTC.Repository;
 namespace SEAlimentarTC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211027015104_DataBaseV1")]
-    partial class DataBaseV1
+    [Migration("20211027104621_BancoV1")]
+    partial class BancoV1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,10 +21,9 @@ namespace SEAlimentarTC.Migrations
             modelBuilder.Entity("SEAlimentarTC.Dtos.AfterDinner", b =>
                 {
                     b.Property<int>("AfterDinnerID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("FoodMenuID")
+                    b.Property<int>("FoodMenuID")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("InsertDate")
@@ -39,7 +38,7 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("AfterDinnerID");
+                    b.HasKey("AfterDinnerID", "FoodMenuID");
 
                     b.HasIndex("FoodMenuID");
 
@@ -49,10 +48,9 @@ namespace SEAlimentarTC.Migrations
             modelBuilder.Entity("SEAlimentarTC.Dtos.AfternoonSnack", b =>
                 {
                     b.Property<int>("AfternoonSnackID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("FoodMenuID")
+                    b.Property<int>("FoodMenuID")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("InsertDate")
@@ -67,7 +65,7 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("AfternoonSnackID");
+                    b.HasKey("AfternoonSnackID", "FoodMenuID");
 
                     b.HasIndex("FoodMenuID");
 
@@ -77,10 +75,9 @@ namespace SEAlimentarTC.Migrations
             modelBuilder.Entity("SEAlimentarTC.Dtos.Breakfest", b =>
                 {
                     b.Property<int>("BreakfestID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("FoodMenuID")
+                    b.Property<int>("FoodMenuID")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("InsertDate")
@@ -95,7 +92,7 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("BreakfestID");
+                    b.HasKey("BreakfestID", "FoodMenuID");
 
                     b.HasIndex("FoodMenuID");
 
@@ -105,10 +102,9 @@ namespace SEAlimentarTC.Migrations
             modelBuilder.Entity("SEAlimentarTC.Dtos.Dinner", b =>
                 {
                     b.Property<int>("DinnerID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("FoodMenuID")
+                    b.Property<int>("FoodMenuID")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("InsertDate")
@@ -123,7 +119,7 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("DinnerID");
+                    b.HasKey("DinnerID", "FoodMenuID");
 
                     b.HasIndex("FoodMenuID");
 
@@ -156,10 +152,9 @@ namespace SEAlimentarTC.Migrations
             modelBuilder.Entity("SEAlimentarTC.Dtos.Lunch", b =>
                 {
                     b.Property<int>("LunchID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("FoodMenuID")
+                    b.Property<int>("FoodMenuID")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("InsertDate")
@@ -174,7 +169,7 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("LunchID");
+                    b.HasKey("LunchID", "FoodMenuID");
 
                     b.HasIndex("FoodMenuID");
 
@@ -184,10 +179,9 @@ namespace SEAlimentarTC.Migrations
             modelBuilder.Entity("SEAlimentarTC.Dtos.MorningSnack", b =>
                 {
                     b.Property<int>("MorningSnackID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("FoodMenuID")
+                    b.Property<int>("FoodMenuID")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("InsertDate")
@@ -202,7 +196,7 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("MorningSnackID");
+                    b.HasKey("MorningSnackID", "FoodMenuID");
 
                     b.HasIndex("FoodMenuID");
 
@@ -248,42 +242,54 @@ namespace SEAlimentarTC.Migrations
                 {
                     b.HasOne("SEAlimentarTC.Dtos.FoodMenu", "FoodMenu")
                         .WithMany()
-                        .HasForeignKey("FoodMenuID");
+                        .HasForeignKey("FoodMenuID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SEAlimentarTC.Dtos.AfternoonSnack", b =>
                 {
                     b.HasOne("SEAlimentarTC.Dtos.FoodMenu", "FoodMenu")
                         .WithMany()
-                        .HasForeignKey("FoodMenuID");
+                        .HasForeignKey("FoodMenuID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SEAlimentarTC.Dtos.Breakfest", b =>
                 {
                     b.HasOne("SEAlimentarTC.Dtos.FoodMenu", "FoodMenu")
                         .WithMany()
-                        .HasForeignKey("FoodMenuID");
+                        .HasForeignKey("FoodMenuID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SEAlimentarTC.Dtos.Dinner", b =>
                 {
                     b.HasOne("SEAlimentarTC.Dtos.FoodMenu", "FoodMenu")
                         .WithMany()
-                        .HasForeignKey("FoodMenuID");
+                        .HasForeignKey("FoodMenuID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SEAlimentarTC.Dtos.Lunch", b =>
                 {
                     b.HasOne("SEAlimentarTC.Dtos.FoodMenu", "FoodMenu")
                         .WithMany()
-                        .HasForeignKey("FoodMenuID");
+                        .HasForeignKey("FoodMenuID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SEAlimentarTC.Dtos.MorningSnack", b =>
                 {
                     b.HasOne("SEAlimentarTC.Dtos.FoodMenu", "FoodMenu")
                         .WithMany()
-                        .HasForeignKey("FoodMenuID");
+                        .HasForeignKey("FoodMenuID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
