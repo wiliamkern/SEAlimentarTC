@@ -6,23 +6,24 @@ using System.Text;
 
 namespace SEAlimentarTC.Dtos
 {
-    class FoodMenu
+    public class FoodMenu
     {
-        [Key]
         public int FoodMenuID { get; set; }
 
-        public string Name { get; set; }
+        public DateTime? MenuDay { get; set; }
 
-        public DateTime? Day { get; set; }
-
-        [ForeignKey("User"), Column(Order = 0)]
-        public int UserID {get;set;}
+        public bool IsChecked { get; set; }
 
         public DateTime? InsertDate { get; set; }
 
         public DateTime? UpdateDate { get; set; }
 
-        public bool? CanUse { get; set; }
-        User User { get; set; }
+        List<Breakfest> BreakfestItems { get; set; }
+        List<MorningSnack> MorningSnackItems { get; set; }
+        List<Lunch> LunchItems { get; set; }
+        List<AfternoonSnack> AfternoonSnackItems { get; set; }
+        List<Dinner> DinnerItems { get; set; }
+        List<AfterDinner> AfterDinnerItems { get; set; }
+
     }
 }

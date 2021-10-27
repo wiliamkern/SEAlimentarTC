@@ -105,12 +105,11 @@ namespace SEAlimentarTC.View
 
         public bool CheckImcIsValid(User user)
         {
-
             bool result = true;
 
             if (user.Imc.HasValue && user.Imc.Value > (decimal)29.9)
             {
-                result = false; //é obsidade
+                result = false; //é obesidade
             }
             else if (user.Imc.HasValue && user.Imc.Value < (decimal)18.5)
             {

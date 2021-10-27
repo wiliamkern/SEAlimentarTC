@@ -8,20 +8,50 @@ namespace SEAlimentarTC.Repository
     public class AppDbContext : DbContext
     {
         public DbSet<User> User { get; set; }
+        public DbSet<FoodMenu> FoodMenu { get; set; }
+        public DbSet<Breakfest> Breakfest { get; set; }
+        public DbSet<MorningSnack> MorningSnack { get; set; }
+        public DbSet<Lunch> Lunch { get; set; }
+        public DbSet<AfternoonSnack> AfternoonSnack { get; set; }
+        public DbSet<Dinner> Dinner { get; set; }
+        public DbSet<AfterDinner> AfterDinner { get; set; }
 
         public AppDbContext() // se o banco existe não faz nada, senão cria ele
         {
             //Database.EnsureDeleted();
-            Database.EnsureCreated();
-            //Database.Migrate();
+            //Database.EnsureCreated();
+            Database.Migrate();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // string dbPath = Path.Combine(FileSystem.AppDataDirectory, "User.db3");
-            // optionsBuilder.UseSqlite($"Filename={dbPath}");
-
             optionsBuilder.UseSqlite($"Filename={DataBase.DBPath}");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // criação de chave composta
+            /* modelBuilder.Entity<Breakfest>()
+                 .HasKey(c => new { c.BreakfestID, c.BreakfestItemID });*/
+
+            modelBuilder.Entity<Breakfest>()
+               .HasKey(c => new { c.BreakfestID });
+
+            modelBuilder.Entity<MorningSnack>()
+               .HasKey(c => new { c.MorningSnackID });
+
+            modelBuilder.Entity<Lunch>()
+               .HasKey(c => new { c.LunchID });
+
+            modelBuilder.Entity<AfternoonSnack>()
+               .HasKey(c => new { c.AfternoonSnackID });
+
+            modelBuilder.Entity<Dinner>()
+               .HasKey(c => new { c.DinnerID });
+
+            modelBuilder.Entity<AfterDinner>()
+              .HasKey(c => new { c.AfterDinnerID });
+
         }
     }
 }
