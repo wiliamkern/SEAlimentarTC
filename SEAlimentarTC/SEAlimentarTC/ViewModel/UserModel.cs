@@ -19,8 +19,6 @@ namespace SEAlimentarTC.ViewModel
 
         public async Task<User> GetUserAsync(int Id)
         {
-            /*AppDataBase.User.RemoveRange(AppDataBase.User);
-            AppDataBase.SaveChanges();*/
             return await AppDataBase.User.FindAsync(Id);
         }
 

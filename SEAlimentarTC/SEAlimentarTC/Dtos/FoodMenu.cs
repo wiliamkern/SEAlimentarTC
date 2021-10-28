@@ -18,6 +18,8 @@ namespace SEAlimentarTC.Dtos
 
         public DateTime? UpdateDate { get; set; }
 
+        public decimal TotalKcal { get; set; }
+
         List<Breakfest> BreakfestItems { get; set; }
         List<MorningSnack> MorningSnackItems { get; set; }
         List<Lunch> LunchItems { get; set; }

@@ -21,12 +21,12 @@ namespace SEAlimentarTC.ViewModel
             return await FoodMenuBase.FoodMenu.FindAsync(Id);
         }
 
-        public async Task<bool> InsertFoodMenuAsync(FoodMenu foodMenu)
+        public async Task<FoodMenu> InsertFoodMenuAsync(FoodMenu foodMenu)
         {
             FoodMenuBase.FoodMenu.Add(foodMenu);
             int lines = await FoodMenuBase.SaveChangesAsync(); // lines == linhas afetadas, se houver linhas afetadas retorna true, senão false
 
-            return lines > 0 ? true : false;
+            return foodMenu;
         }
 
         public async Task<bool> UpdateFoodMenuAsync(FoodMenu foodMenu)
