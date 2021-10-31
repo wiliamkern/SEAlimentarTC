@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace SEAlimentarTC.Dtos
 {
     public class Lunch
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int LunchID { get; set; }
         public int FoodMenuID { get; set; }
 

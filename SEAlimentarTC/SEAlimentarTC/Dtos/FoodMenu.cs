@@ -8,6 +8,7 @@ namespace SEAlimentarTC.Dtos
 {
     public class FoodMenu
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int FoodMenuID { get; set; }
 
         public DateTime? MenuDay { get; set; }

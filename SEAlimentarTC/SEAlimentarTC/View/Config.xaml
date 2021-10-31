@@ -9,7 +9,7 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <Frame BackgroundColor="#E6E6E6" CornerRadius="30" Padding="10"  HasShadow="True" Margin="30">
+            <Frame BackgroundColor="#E6E6E6" CornerRadius="30" Padding="20"  HasShadow="True" Margin="30" HeightRequest="400">
                 <StackLayout>
                     
                     <Label Text="Dados Pessoais" FontAttributes="Bold" FontSize="23" HorizontalTextAlignment="Start" Padding="10"/>
@@ -42,6 +42,7 @@
 
                     <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
                         <Button Text="Salvar" WidthRequest="250" FontFamily="ArialRoundedMT" Clicked="SaveData" HeightRequest="60" BackgroundColor="#2C7733" CornerRadius="30"/>
+                        <Button Text="Deletar minha conta" WidthRequest="50" FontFamily="ArialRoundedMT" Clicked="DeleteUser" HeightRequest="40" BackgroundColor="Red" CornerRadius="30"/>
                     </StackLayout>
 
                 </StackLayout>

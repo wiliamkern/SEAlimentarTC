@@ -2,13 +2,35 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SEAlimentarTC.View.GenerateFoodMenus"
-             Title="Gerar cardápios alimentares">
+             Title="Cardápios">
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Gerar cardápios alimentares"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+
+                <Label Text="Cardápio atual" HorizontalTextAlignment="Start" FontSize="23" Margin="30,50,10,10" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
+
+                <Frame BackgroundColor="#E6E6E6" CornerRadius="30" Padding="20"  HasShadow="True" Margin="30,0,30,30" >
+                    <StackLayout Padding="10,0,10,0" HorizontalOptions="FillAndExpand">
+                        <Label TextColor="#FF2C7733" FontAttributes="Bold" HorizontalOptions="Start" Padding="10,0,10,10" FontFamily="ArialRoundedMT" FontSize="16">Observações</Label>
+
+                    </StackLayout>
+                </Frame>
+                
+                <Label Text="Opções" HorizontalTextAlignment="Start" FontSize="23" Margin="30,30,10,0" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
+
+                 <StackLayout Padding="10,10,10,0" HorizontalOptions="FillAndExpand">
+                        <Button BackgroundColor="#FF2C7733" Clicked="GenerateNewFoodMenus" Text="Gerar cardápios alimentares" FontSize="16" Margin="30,0,30,0" TextColor="white" FontFamily="ArialRoundedMT" HeightRequest="60" FontAttributes="Bold" CornerRadius="15"/>
+                        <Button BackgroundColor="#FF2C7733" Clicked="GetFoodMenusHistoricList" Text="Ver meu histórico de cardápios" FontSize="16" Margin="30,0,30,0" TextColor="white" FontFamily="ArialRoundedMT" HeightRequest="60" FontAttributes="Bold" CornerRadius="15"/>
+                 </StackLayout>
+
+                <StackLayout Orientation="Vertical" Padding="30,50,20,0">
+                    <Label TextColor="#FF2C7733" FontAttributes="Bold" HorizontalOptions="Start" Padding="10,0,10,10" FontFamily="ArialRoundedMT" FontSize="20">Observações</Label>
+                    <Label TextColor="#505050" FontAttributes="Bold" HorizontalOptions="Start" HorizontalTextAlignment="Center" Padding="0,0,10,10" FontFamily="ArialRoundedMT" FontSize="16">Sempre mantenha seus dados atualizados para uma melhor precisão na geração dos cardápios alimentares!</Label>
+                    <Label TextColor="#505050" FontAttributes="Bold" HorizontalOptions="Start" HorizontalTextAlignment="Center" Padding="0,0,10,10" FontFamily="ArialRoundedMT" FontSize="16">O aplicativo não substitui o acompanhamento de um profissional da área. Consulte um profissional em nutrição sempre que possível!</Label>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

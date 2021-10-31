@@ -16,5 +16,15 @@ namespace SEAlimentarTC.View
         {
             InitializeComponent();
         }
+
+        private void GenerateNewFoodMenus(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GetFoodMenusHistoricList(object sender, EventArgs e)
+        {
+
+        }
     }
 }

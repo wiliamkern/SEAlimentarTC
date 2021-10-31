@@ -9,8 +9,8 @@ using SEAlimentarTC.Repository;
 namespace SEAlimentarTC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211027110048_BancoV2")]
-    partial class BancoV2
+    [Migration("20211031182916_BancoV1")]
+    partial class BancoV1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,10 +20,11 @@ namespace SEAlimentarTC.Migrations
 
             modelBuilder.Entity("SEAlimentarTC.Dtos.AfterDinner", b =>
                 {
-                    b.Property<int>("AfterDinnerID")
+                    b.Property<int>("FoodMenuID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("FoodMenuID")
+                    b.Property<int>("AfterDinnerID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("InsertDate")
@@ -38,19 +39,18 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("AfterDinnerID", "FoodMenuID");
-
-                    b.HasIndex("FoodMenuID");
+                    b.HasKey("FoodMenuID", "AfterDinnerID");
 
                     b.ToTable("AfterDinner");
                 });
 
             modelBuilder.Entity("SEAlimentarTC.Dtos.AfternoonSnack", b =>
                 {
-                    b.Property<int>("AfternoonSnackID")
+                    b.Property<int>("FoodMenuID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("FoodMenuID")
+                    b.Property<int>("AfternoonSnackID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("InsertDate")
@@ -65,19 +65,18 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("AfternoonSnackID", "FoodMenuID");
-
-                    b.HasIndex("FoodMenuID");
+                    b.HasKey("FoodMenuID", "AfternoonSnackID");
 
                     b.ToTable("AfternoonSnack");
                 });
 
             modelBuilder.Entity("SEAlimentarTC.Dtos.Breakfest", b =>
                 {
-                    b.Property<int>("BreakfestID")
+                    b.Property<int>("FoodMenuID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("FoodMenuID")
+                    b.Property<int>("BreakfestID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("InsertDate")
@@ -92,19 +91,18 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("BreakfestID", "FoodMenuID");
-
-                    b.HasIndex("FoodMenuID");
+                    b.HasKey("FoodMenuID", "BreakfestID");
 
                     b.ToTable("Breakfest");
                 });
 
             modelBuilder.Entity("SEAlimentarTC.Dtos.Dinner", b =>
                 {
-                    b.Property<int>("DinnerID")
+                    b.Property<int>("FoodMenuID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("FoodMenuID")
+                    b.Property<int>("DinnerID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("InsertDate")
@@ -119,9 +117,7 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("DinnerID", "FoodMenuID");
-
-                    b.HasIndex("FoodMenuID");
+                    b.HasKey("FoodMenuID", "DinnerID");
 
                     b.ToTable("Dinner");
                 });
@@ -141,6 +137,9 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("MenuDay")
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal>("TotalKcal")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
@@ -151,10 +150,11 @@ namespace SEAlimentarTC.Migrations
 
             modelBuilder.Entity("SEAlimentarTC.Dtos.Lunch", b =>
                 {
-                    b.Property<int>("LunchID")
+                    b.Property<int>("FoodMenuID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("FoodMenuID")
+                    b.Property<int>("LunchID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("InsertDate")
@@ -169,19 +169,18 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("LunchID", "FoodMenuID");
-
-                    b.HasIndex("FoodMenuID");
+                    b.HasKey("FoodMenuID", "LunchID");
 
                     b.ToTable("Lunch");
                 });
 
             modelBuilder.Entity("SEAlimentarTC.Dtos.MorningSnack", b =>
                 {
-                    b.Property<int>("MorningSnackID")
+                    b.Property<int>("FoodMenuID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("FoodMenuID")
+                    b.Property<int>("MorningSnackID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("InsertDate")
@@ -196,9 +195,7 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("MorningSnackID", "FoodMenuID");
-
-                    b.HasIndex("FoodMenuID");
+                    b.HasKey("FoodMenuID", "MorningSnackID");
 
                     b.ToTable("MorningSnack");
                 });

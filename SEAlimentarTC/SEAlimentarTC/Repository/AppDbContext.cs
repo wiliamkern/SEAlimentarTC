@@ -34,22 +34,22 @@ namespace SEAlimentarTC.Repository
 
             // criação de chave composta só pelo API Fluent
             modelBuilder.Entity<Breakfest>()
-               .HasKey(c => new { c.BreakfestID, c.FoodMenuID });
+               .HasKey(c => new { c.FoodMenuID, c.BreakfestID });
 
             modelBuilder.Entity<MorningSnack>()
-               .HasKey(c => new { c.MorningSnackID, c.FoodMenuID });
+               .HasKey(c => new { c.FoodMenuID, c.MorningSnackID });
 
             modelBuilder.Entity<Lunch>()
-               .HasKey(c => new { c.LunchID, c.FoodMenuID });
+               .HasKey(c => new { c.FoodMenuID, c.LunchID});
 
             modelBuilder.Entity<AfternoonSnack>()
-               .HasKey(c => new { c.AfternoonSnackID, c.FoodMenuID });
+               .HasKey(c => new { c.FoodMenuID, c.AfternoonSnackID });
 
             modelBuilder.Entity<Dinner>()
-               .HasKey(c => new { c.DinnerID, c.FoodMenuID });
+               .HasKey(c => new { c.FoodMenuID, c.DinnerID });
 
             modelBuilder.Entity<AfterDinner>()
-              .HasKey(c => new { c.AfterDinnerID, c.FoodMenuID });
+              .HasKey(c => new { c.FoodMenuID, c.AfterDinnerID });
 
         }
     }

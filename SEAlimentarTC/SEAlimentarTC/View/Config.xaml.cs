@@ -118,5 +118,10 @@ namespace SEAlimentarTC.View
 
             return result;
         }
+
+        private void DeleteUser(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -8,7 +8,9 @@ namespace SEAlimentarTC.Dtos
 {
     public class Breakfest
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BreakfestID { get; set; }
+
         public int FoodMenuID { get; set; }
 
         public string ItemName { get; set; }
