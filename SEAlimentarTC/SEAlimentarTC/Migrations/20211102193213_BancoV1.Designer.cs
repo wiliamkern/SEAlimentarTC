@@ -9,7 +9,7 @@ using SEAlimentarTC.Repository;
 namespace SEAlimentarTC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211031182916_BancoV1")]
+    [Migration("20211102193213_BancoV1")]
     partial class BancoV1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -131,6 +131,29 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("InsertDate")
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal>("TotalKcal")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("FoodMenuID");
+
+                    b.ToTable("FoodMenu");
+                });
+
+            modelBuilder.Entity("SEAlimentarTC.Dtos.FoodMenuHistory", b =>
+                {
+                    b.Property<int>("FoodMenuHistoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("FoodMenuID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("InsertDate")
+                        .HasColumnType("TEXT");
+
                     b.Property<bool>("IsChecked")
                         .HasColumnType("INTEGER");
 
@@ -143,9 +166,11 @@ namespace SEAlimentarTC.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("FoodMenuID");
+                    b.HasKey("FoodMenuHistoryID");
 
-                    b.ToTable("FoodMenu");
+                    b.HasIndex("FoodMenuID");
+
+                    b.ToTable("FoodMenuHistory");
                 });
 
             modelBuilder.Entity("SEAlimentarTC.Dtos.Lunch", b =>
@@ -238,7 +263,7 @@ namespace SEAlimentarTC.Migrations
             modelBuilder.Entity("SEAlimentarTC.Dtos.AfterDinner", b =>
                 {
                     b.HasOne("SEAlimentarTC.Dtos.FoodMenu", "FoodMenu")
-                        .WithMany()
+                        .WithMany("AfterDinnerItems")
                         .HasForeignKey("FoodMenuID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -247,7 +272,7 @@ namespace SEAlimentarTC.Migrations
             modelBuilder.Entity("SEAlimentarTC.Dtos.AfternoonSnack", b =>
                 {
                     b.HasOne("SEAlimentarTC.Dtos.FoodMenu", "FoodMenu")
-                        .WithMany()
+                        .WithMany("AfternoonSnackItems")
                         .HasForeignKey("FoodMenuID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -256,7 +281,7 @@ namespace SEAlimentarTC.Migrations
             modelBuilder.Entity("SEAlimentarTC.Dtos.Breakfest", b =>
                 {
                     b.HasOne("SEAlimentarTC.Dtos.FoodMenu", "FoodMenu")
-                        .WithMany()
+                        .WithMany("BreakfestItems")
                         .HasForeignKey("FoodMenuID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -265,6 +290,15 @@ namespace SEAlimentarTC.Migrations
             modelBuilder.Entity("SEAlimentarTC.Dtos.Dinner", b =>
                 {
                     b.HasOne("SEAlimentarTC.Dtos.FoodMenu", "FoodMenu")
+                        .WithMany("DinnerItems")
+                        .HasForeignKey("FoodMenuID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SEAlimentarTC.Dtos.FoodMenuHistory", b =>
+                {
+                    b.HasOne("SEAlimentarTC.Dtos.FoodMenu", "FoodMenuData")
                         .WithMany()
                         .HasForeignKey("FoodMenuID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -274,7 +308,7 @@ namespace SEAlimentarTC.Migrations
             modelBuilder.Entity("SEAlimentarTC.Dtos.Lunch", b =>
                 {
                     b.HasOne("SEAlimentarTC.Dtos.FoodMenu", "FoodMenu")
-                        .WithMany()
+                        .WithMany("LunchItems")
                         .HasForeignKey("FoodMenuID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -283,7 +317,7 @@ namespace SEAlimentarTC.Migrations
             modelBuilder.Entity("SEAlimentarTC.Dtos.MorningSnack", b =>
                 {
                     b.HasOne("SEAlimentarTC.Dtos.FoodMenu", "FoodMenu")
-                        .WithMany()
+                        .WithMany("MorningSnackItems")
                         .HasForeignKey("FoodMenuID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

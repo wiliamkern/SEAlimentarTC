@@ -22,9 +22,9 @@ namespace SEAlimentarTC.View
 
         }
 
-        private void GetFoodMenusHistoricList(object sender, EventArgs e)
+        private async void GetFoodMenusHistoricList(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new FoodMenuHistoryList());
         }
     }
 }

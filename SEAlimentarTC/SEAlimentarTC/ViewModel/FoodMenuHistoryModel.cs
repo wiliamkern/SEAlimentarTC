@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace SEAlimentarTC.ViewModel
 {
-    class LunchModel
+    class FoodMenuHistoryModel
     {
         private AppDbContext AppDataBase { get; set; }
 
-        public LunchModel()
+        public FoodMenuHistoryModel()
         {
             AppDataBase = new AppDbContext();
         }
 
-        public async Task<bool> InsertLunchAsync(Lunch Lunch)
+        public async Task<bool> InsertFoodMenuHistoryAsync(FoodMenuHistory foodMenuHistory)
         {
-            AppDataBase.Lunch.Add(Lunch);
+            AppDataBase.FoodMenuHistory.Add(foodMenuHistory);
             int lines = await AppDataBase.SaveChangesAsync(); // lines == linhas afetadas, se houver linhas afetadas retorna true, senão false
 
             return lines > 0 ? true : false;

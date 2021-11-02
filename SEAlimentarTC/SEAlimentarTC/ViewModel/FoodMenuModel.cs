@@ -1,7 +1,9 @@
-﻿using SEAlimentarTC.Dtos;
+﻿using Microsoft.EntityFrameworkCore;
+using SEAlimentarTC.Dtos;
 using SEAlimentarTC.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,6 +47,21 @@ namespace SEAlimentarTC.ViewModel
             int lines = await FoodMenuBase.SaveChangesAsync();
 
             return lines > 0 ? true : false;
+        }
+
+        public List<FoodMenu> GetList()
+        {
+
+            List<FoodMenu> list = FoodMenuBase.FoodMenu
+                .Include(foodMenu => foodMenu.BreakfestItems)
+                .Include(foodMenu => foodMenu.MorningSnackItems)
+                .Include(foodMenu => foodMenu.LunchItems)
+                .Include(foodMenu => foodMenu.AfternoonSnackItems)
+                .Include(foodMenu => foodMenu.DinnerItems)
+                .Include(foodMenu => foodMenu.AfterDinnerItems)
+                .ToList();
+
+            return list;
         }
     }
 }

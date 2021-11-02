@@ -16,11 +16,6 @@ namespace SEAlimentarTC.ViewModel
             AppDataBase = new AppDbContext();
         }
 
-   /*     public async Task<Breakfest> GetBreakfestAsync(int Id)
-        {
-            return await AppDataBase.Breakfest.FindAsync(Id);
-        }
-   */
         public async Task<bool> InsertAfternoonSnackAsync(AfternoonSnack AfternoonSnack)
         {
             AppDataBase.AfternoonSnack.Add(AfternoonSnack);
@@ -29,22 +24,5 @@ namespace SEAlimentarTC.ViewModel
             return lines > 0 ? true : false;
         }
 
-/*        public async Task<bool> UpdateFoodMenuAsync(FoodMenu foodMenu)
-        {
-            AppDataBase.FoodMenu.Update(foodMenu);
-            int lines = await AppDataBase.SaveChangesAsync();
-
-            return lines > 0 ? true : false;
-        }
-
-        public async Task<bool> DeleteFoodMenuAsync(int Id)
-        {
-            FoodMenu foodMenu = await GetFoodMenuAsync(Id);
-
-            AppDataBase.FoodMenu.Remove(foodMenu);
-            int lines = await AppDataBase.SaveChangesAsync();
-
-            return lines > 0 ? true : false;
-        }*/
     }
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -83,8 +84,21 @@ namespace SEAlimentarTC.View
                 else
                 {
                     user.InsertDate = DateTime.Now;
+                    user.UserID = 1;
                     if (new UserModel().InsertUseAsync(user))
+                    {
+                        // faz o insert dos cardápios pré definidos
+                        if(new FoodMenuModel().GetList().Count == 0)
+                        {
+                            await new GenerateEnvironmentDefault().InsertAllFoodMenus1600KcalAsync();
+                            await new GenerateEnvironmentDefault().InsertAllFoodMenus1800KcalAsync();
+                            await new GenerateEnvironmentDefault().InsertAllFoodMenus2000KcalAsync();
+                            await new GenerateEnvironmentDefault().InsertAllFoodMenus2200KcalAsync();
+                            await new GenerateEnvironmentDefault().InsertAllFoodMenus2500KcalAsync();
+                        }
+
                         await App.Current.MainPage.DisplayAlert("", "Dados salvos com sucesso!", "Fechar");
+                    }
                     else
                         await App.Current.MainPage.DisplayAlert("", "Não foi possível salvar os dados", "Fechar");
                 }
@@ -92,14 +106,10 @@ namespace SEAlimentarTC.View
                 // carrega os dados atualizados pra sessão usuário
                 LoggedModel.LoggedUser = user;
 
-                if (!CheckImcIsValid(user))
-                {
-                    await Navigation.PushAsync(new ImcNotValid());
-                }
-                else
-                {
-                    await Navigation.PushAsync(new MainPage());
-                }
+                if (!CheckImcIsValid(user))               
+                    await Navigation.PushAsync(new ImcNotValid());              
+                else                
+                    await Navigation.PushAsync(new MainPage());             
             }
         }
 
@@ -119,9 +129,17 @@ namespace SEAlimentarTC.View
             return result;
         }
 
-        private void DeleteUser(object sender, EventArgs e)
+        [Obsolete]
+        private async void DeleteUser(object sender, EventArgs e)
         {
+            var answer = await DisplayAlert("Cuidado", "Ao deletar seu cadastro, todos os seus dados pessoais serão deletados! Deseja continuar?", "Sim", "Não");
 
+            if (answer) // deleta o usuário quaso 
+            {
+                await new UserModel().DeleteUserAsyncBySqlCommand(LoggedModel.LoggedUser.UserID);
+
+                Thread.CurrentThread.Abort(); // encerra a thred do app
+            }
         }
     }
 }

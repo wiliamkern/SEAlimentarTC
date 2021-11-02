@@ -1,4 +1,5 @@
-﻿using SEAlimentarTC.Dtos;
+﻿using Microsoft.EntityFrameworkCore;
+using SEAlimentarTC.Dtos;
 using SEAlimentarTC.Repository;
 using System;
 using System.Collections.Generic;
@@ -58,16 +59,15 @@ namespace SEAlimentarTC.ViewModel
         }
 
         /**
-         * Faz o delete de todos usuários
+         * Faz o delete dos dados de usuário por comando sql
          * **/
-        public async Task<bool> DeleteAllUsersAsync()
+        [Obsolete]
+        public async Task<bool> DeleteUserAsyncBySqlCommand(int Id)
         {
-            var itemsToDelete = AppDataBase.Set<User>();
-            AppDataBase.User.RemoveRange(itemsToDelete);
+            int noOfRowDeleted = await AppDataBase.Database.ExecuteSqlCommandAsync($@"DELETE FROM User 
+            WHERE UserID = {Id}");
 
-            int lines = await AppDataBase.SaveChangesAsync();
-
-            return lines > 0 ? true : false;
+            return noOfRowDeleted > 0 ? true : false;
         }
     }
 }

@@ -13,8 +13,6 @@ namespace SEAlimentarTC.Migrations
                 {
                     FoodMenuID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    MenuDay = table.Column<DateTime>(nullable: true),
-                    IsChecked = table.Column<bool>(nullable: false),
                     InsertDate = table.Column<DateTime>(nullable: true),
                     UpdateDate = table.Column<DateTime>(nullable: true),
                     TotalKcal = table.Column<decimal>(nullable: false)
@@ -137,6 +135,30 @@ namespace SEAlimentarTC.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "FoodMenuHistory",
+                columns: table => new
+                {
+                    FoodMenuHistoryID = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    FoodMenuID = table.Column<int>(nullable: false),
+                    MenuDay = table.Column<DateTime>(nullable: true),
+                    IsChecked = table.Column<bool>(nullable: false),
+                    InsertDate = table.Column<DateTime>(nullable: true),
+                    UpdateDate = table.Column<DateTime>(nullable: true),
+                    TotalKcal = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FoodMenuHistory", x => x.FoodMenuHistoryID);
+                    table.ForeignKey(
+                        name: "FK_FoodMenuHistory_FoodMenu_FoodMenuID",
+                        column: x => x.FoodMenuID,
+                        principalTable: "FoodMenu",
+                        principalColumn: "FoodMenuID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Lunch",
                 columns: table => new
                 {
@@ -181,6 +203,11 @@ namespace SEAlimentarTC.Migrations
                         principalColumn: "FoodMenuID",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FoodMenuHistory_FoodMenuID",
+                table: "FoodMenuHistory",
+                column: "FoodMenuID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -196,6 +223,9 @@ namespace SEAlimentarTC.Migrations
 
             migrationBuilder.DropTable(
                 name: "Dinner");
+
+            migrationBuilder.DropTable(
+                name: "FoodMenuHistory");
 
             migrationBuilder.DropTable(
                 name: "Lunch");

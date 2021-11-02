@@ -11,7 +11,7 @@
         <ScrollView>
             <Frame BackgroundColor="#E6E6E6" CornerRadius="30" Padding="20"  HasShadow="True" Margin="30" HeightRequest="400">
                 <StackLayout>
-                    
+
                     <Label Text="Dados Pessoais" FontAttributes="Bold" FontSize="23" HorizontalTextAlignment="Start" Padding="10"/>
 
                     <Entry x:Name="Name" Text="{Binding Name}" Placeholder="Informe o seu nome" FontFamily="ArialRoundedMT" BackgroundColor="#E6E6E6" MaxLength="30" />

@@ -15,6 +15,7 @@ namespace SEAlimentarTC.Repository
         public DbSet<AfternoonSnack> AfternoonSnack { get; set; }
         public DbSet<Dinner> Dinner { get; set; }
         public DbSet<AfterDinner> AfterDinner { get; set; }
+        public DbSet<FoodMenuHistory> FoodMenuHistory { get; set; }
 
         public AppDbContext() // se o banco existe não faz nada, senão cria ele
         {

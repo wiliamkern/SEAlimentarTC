@@ -27,7 +27,7 @@
                 <StackLayout Orientation="Vertical" Padding="30,50,20,0">
                     <Label TextColor="#FF2C7733" FontAttributes="Bold" HorizontalOptions="Start" Padding="10,0,10,10" FontFamily="ArialRoundedMT" FontSize="20">Observações</Label>
                     <Label TextColor="#505050" FontAttributes="Bold" HorizontalOptions="Start" HorizontalTextAlignment="Center" Padding="0,0,10,10" FontFamily="ArialRoundedMT" FontSize="16">Sempre mantenha seus dados atualizados para uma melhor precisão na geração dos cardápios alimentares!</Label>
-                    <Label TextColor="#505050" FontAttributes="Bold" HorizontalOptions="Start" HorizontalTextAlignment="Center" Padding="0,0,10,10" FontFamily="ArialRoundedMT" FontSize="16">O aplicativo não substitui o acompanhamento de um profissional da área. Consulte um profissional em nutrição sempre que possível!</Label>
+                    <Label TextColor="#505050" FontAttributes="Bold" HorizontalOptions="Start" HorizontalTextAlignment="Center" Padding="0,0,10,10" FontFamily="ArialRoundedMT" FontSize="16">O aplicativo não exime o acompanhamento de um profissional da área. Consulte um profissional em nutrição sempre que possível!</Label>
                 </StackLayout>
 
             </StackLayout>
