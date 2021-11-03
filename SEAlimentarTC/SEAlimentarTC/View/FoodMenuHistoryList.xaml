@@ -8,13 +8,16 @@
         <ScrollView>
             <StackLayout>
 
-                <Label Text="Histórico" HorizontalTextAlignment="Start" FontSize="23" Margin="30,50,10,10" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
+                <Label Text="Histórico" HorizontalTextAlignment="Start" FontSize="23" Margin="30,30,10,10" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
 
                 <Frame BackgroundColor="#E6E6E6" CornerRadius="30" Padding="20"  HasShadow="True" Margin="30,0,30,30" >
-                    <StackLayout Padding="10,0,10,0" HorizontalOptions="FillAndExpand">
-                        <Label TextColor="#FF2C7733" FontAttributes="Bold" HorizontalOptions="Start" Padding="10,0,10,10" FontFamily="ArialRoundedMT" FontSize="16">Observações</Label>
-
-                    </StackLayout>
+                    <ListView x:Name="FoodMenuHistoryListData" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ImageCell Text="{Binding MenuDayString}" Tapped="ShowFoodMenu" CommandParameter="{Binding FoodMenuID}"></ImageCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </Frame>
             </StackLayout>
         </ScrollView>

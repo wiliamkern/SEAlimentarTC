@@ -12,17 +12,17 @@ using Xamarin.Forms.Xaml;
 namespace SEAlimentarTC.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GenerateFoodMenus : ContentPage
+    public partial class FoodMenuData : ContentPage
     {
-        public GenerateFoodMenus()
+        public FoodMenuData(FoodMenu fd, string name)
         {
             InitializeComponent();
-
-            FoodMenuHistory fmh = new FoodMenuHistoryModel().GetList().Where(w => w.MenuDay.Value.Date == DateTime.Now.Date).FirstOrDefault();
-            FoodMenu fd = new FoodMenuModel().GetList().Where(w => w.FoodMenuID == fmh.FoodMenuID).FirstOrDefault();
+            
+            FoodDay.Text = name;
+            TotalKcal.Text = fd.TotalKcal + " Kcal";
 
             string breakfest = string.Empty;
-            foreach (Breakfest item in fd.BreakfestItems)
+            foreach(Breakfest item in fd.BreakfestItems)
             {
                 breakfest += $"{item.ItemName} \r\n \r\n";
             }
@@ -62,20 +62,6 @@ namespace SEAlimentarTC.View
                 afterDinner += $"{item.ItemName} \r\n \r\n";
             }
             AfterDinner.Text = afterDinner;
-
-        }
-
-        private async void GenerateNewFoodMenus(object sender, EventArgs e)
-        {
-            // chama classe que realiza as operações de inferência em cima dos dados do banco
-            new InferenceMachine().Infer();
-
-            await App.Current.MainPage.DisplayAlert("", "Novos cardápios gerados com sucesso!", "OK");
-        }
-
-        private async void GetFoodMenusHistoricList(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new FoodMenuHistoryList());
         }
     }
 }

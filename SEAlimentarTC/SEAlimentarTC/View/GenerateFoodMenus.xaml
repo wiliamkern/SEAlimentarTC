@@ -7,15 +7,6 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-
-                <Label Text="Cardápio atual" HorizontalTextAlignment="Start" FontSize="23" Margin="30,50,10,10" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
-
-                <Frame BackgroundColor="#E6E6E6" CornerRadius="30" Padding="20"  HasShadow="True" Margin="30,0,30,30" >
-                    <StackLayout Padding="10,0,10,0" HorizontalOptions="FillAndExpand">
-                        <Label TextColor="#FF2C7733" FontAttributes="Bold" HorizontalOptions="Start" Padding="10,0,10,10" FontFamily="ArialRoundedMT" FontSize="16">Observações</Label>
-
-                    </StackLayout>
-                </Frame>
                 
                 <Label Text="Opções" HorizontalTextAlignment="Start" FontSize="23" Margin="30,30,10,0" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
 
@@ -29,7 +20,32 @@
                     <Label TextColor="#505050" FontAttributes="Bold" HorizontalOptions="Start" HorizontalTextAlignment="Center" Padding="0,0,10,10" FontFamily="ArialRoundedMT" FontSize="16">Sempre mantenha seus dados atualizados para uma melhor precisão na geração dos cardápios alimentares!</Label>
                     <Label TextColor="#505050" FontAttributes="Bold" HorizontalOptions="Start" HorizontalTextAlignment="Center" Padding="0,0,10,10" FontFamily="ArialRoundedMT" FontSize="16">O aplicativo não exime o acompanhamento de um profissional da área. Consulte um profissional em nutrição sempre que possível!</Label>
                 </StackLayout>
+                
+                <Label Text="Cardápio atual" HorizontalTextAlignment="Start" FontSize="23" Margin="30,50,10,10" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
 
+                <Frame BackgroundColor="#E6E6E6" CornerRadius="30" Padding="20"  HasShadow="True" Margin="30,0,30,30" >
+                    <StackLayout Padding="10,0,10,0" HorizontalOptions="Center">
+
+                        <Label Text="Café da Manhã" HorizontalTextAlignment="Start" FontSize="18" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="Black" />
+                        <Label x:Name="Breakfest" HorizontalTextAlignment="Start" FontSize="12" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
+
+                        <Label Text="Lanche da Manhã" HorizontalTextAlignment="Start" FontSize="18" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="Black" />
+                        <Label x:Name="MorningSnack" HorizontalTextAlignment="Start" FontSize="12" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
+
+                        <Label Text="Almoço" HorizontalTextAlignment="Start" FontSize="18" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="Black" />
+                        <Label x:Name="Lunch" HorizontalTextAlignment="Start" FontSize="12" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
+
+                        <Label Text="Lanche da Tarde" HorizontalTextAlignment="Start" FontSize="18" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="Black" />
+                        <Label x:Name="AfternoonSnack" HorizontalTextAlignment="Start" FontSize="12" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
+
+                        <Label Text="Jantar" HorizontalTextAlignment="Start" FontSize="18" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="Black" />
+                        <Label x:Name="Dinner" HorizontalTextAlignment="Start" FontSize="12" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
+
+                        <Label Text="Ceia" HorizontalTextAlignment="Start" FontSize="18" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="Black" />
+                        <Label x:Name="AfterDinner" HorizontalTextAlignment="Start" FontSize="12" FontFamily="ArialRoundedMT"  FontAttributes="Bold" TextColor="#505050" />
+
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

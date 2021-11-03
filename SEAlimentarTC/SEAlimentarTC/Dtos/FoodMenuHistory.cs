@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Globalization;
 using System.Text;
 
 namespace SEAlimentarTC.Dtos
@@ -22,6 +23,23 @@ namespace SEAlimentarTC.Dtos
         public DateTime? UpdateDate { get; set; }
 
         public decimal TotalKcal { get; set; }
+
+        [NotMapped]
+        public string MenuDayString
+        {
+            get
+            {
+                if (MenuDay.HasValue)
+                {
+                    CultureInfo culture = new CultureInfo("pt-BR");
+                    string dayName = culture.DateTimeFormat.GetDayName(MenuDay.Value.DayOfWeek);
+
+                    return $"Refeição de {dayName} {MenuDay.Value.Date.ToString("dd/MM/yyyy")}";
+                }
+                else
+                    return string.Empty;
+            }
+        }
 
         public FoodMenu FoodMenuData { get; set; }
     }

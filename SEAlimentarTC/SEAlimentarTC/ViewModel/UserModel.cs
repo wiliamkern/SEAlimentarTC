@@ -18,11 +18,17 @@ namespace SEAlimentarTC.ViewModel
             AppDataBase = new AppDbContext();
         }
 
+        // método assíncrono para buscar usuário
         public async Task<User> GetUserAsync(int Id)
         {
             return await AppDataBase.User.FindAsync(Id);
         }
 
+        // método síncrono para buscar usuário
+        public User GetUser(int Id)
+        {
+            return AppDataBase.User.Find(Id);
+        }
         /**
          * Faz a inserção dos dados de usuário
          * **/

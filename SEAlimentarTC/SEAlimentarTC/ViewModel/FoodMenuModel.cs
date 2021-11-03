@@ -23,6 +23,11 @@ namespace SEAlimentarTC.ViewModel
             return await FoodMenuBase.FoodMenu.FindAsync(Id);
         }
 
+        public FoodMenu GetFoodMenu(int Id)
+        {
+            return FoodMenuBase.FoodMenu.Find(Id);
+        }
+
         public async Task<FoodMenu> InsertFoodMenuAsync(FoodMenu foodMenu)
         {
             FoodMenuBase.FoodMenu.Add(foodMenu);
@@ -51,7 +56,6 @@ namespace SEAlimentarTC.ViewModel
 
         public List<FoodMenu> GetList()
         {
-
             List<FoodMenu> list = FoodMenuBase.FoodMenu
                 .Include(foodMenu => foodMenu.BreakfestItems)
                 .Include(foodMenu => foodMenu.MorningSnackItems)

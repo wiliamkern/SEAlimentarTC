@@ -24,6 +24,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="NRules" Version="0.9.2" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Xamarin.Forms.BehaviorValidationPack" Version="1.1.1" />
@@ -37,6 +38,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="View\FoodMenuData.xaml.cs">
+      <DependentUpon>FoodMenuData.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\ImcNotValid.xaml.cs">
       <DependentUpon>ImcNotValid.xaml</DependentUpon>
     </Compile>
