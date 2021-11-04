@@ -107,7 +107,6 @@ namespace SEAlimentarTC.ViewModel
                 {
                     MenuDay = today,
                     FoodMenuID = item.FoodMenuID,
-                    IsChecked = false,
                     InsertDate = DateTime.Now,
                     TotalKcal = item.TotalKcal
                 });

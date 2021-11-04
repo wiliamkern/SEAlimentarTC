@@ -49,6 +49,12 @@ namespace SEAlimentarTC
             await Navigation.PushAsync(new View.GenerateFoodMenus());
         }
 
+        private async void GetAlertsView(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new View.AlertsView());
+        }
+
+
         private async void ReadUserTerms(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new View.TermosDeUso());

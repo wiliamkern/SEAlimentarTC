@@ -38,5 +38,10 @@ namespace SEAlimentarTC.ViewModel
 
             return list;
         }
+
+        public void GenerateAlert(DateTime day)
+        {
+
+        }
     }
 }

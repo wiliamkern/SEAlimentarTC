@@ -16,8 +16,6 @@ namespace SEAlimentarTC.Dtos
 
         public DateTime? MenuDay { get; set; }
 
-        public bool IsChecked { get; set; }
-
         public DateTime? InsertDate { get; set; }
 
         public DateTime? UpdateDate { get; set; }

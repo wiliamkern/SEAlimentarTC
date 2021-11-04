@@ -19,50 +19,53 @@ namespace SEAlimentarTC.View
             InitializeComponent();
 
             FoodMenuHistory fmh = new FoodMenuHistoryModel().GetList().Where(w => w.MenuDay.Value.Date == DateTime.Now.Date).FirstOrDefault();
-            FoodMenu fd = new FoodMenuModel().GetList().Where(w => w.FoodMenuID == fmh.FoodMenuID).FirstOrDefault();
 
-            string breakfest = string.Empty;
-            foreach (Breakfest item in fd.BreakfestItems)
+            if (fmh != null)
             {
-                breakfest += $"{item.ItemName} \r\n \r\n";
-            }
-            Breakfest.Text = breakfest;
+                FoodMenu fd = new FoodMenuModel().GetList().Where(w => w.FoodMenuID == fmh.FoodMenuID).FirstOrDefault();
 
-            string morningSnack = string.Empty;
-            foreach (MorningSnack item in fd.MorningSnackItems)
-            {
-                morningSnack += $"{item.ItemName} \r\n \r\n";
-            }
-            MorningSnack.Text = morningSnack;
+                string breakfest = string.Empty;
+                foreach (Breakfest item in fd.BreakfestItems)
+                {
+                    breakfest += $"{item.ItemName} \r\n \r\n";
+                }
+                Breakfest.Text = breakfest;
 
-            string lunch = string.Empty;
-            foreach (Lunch item in fd.LunchItems)
-            {
-                lunch += $"{item.ItemName} \r\n \r\n";
-            }
-            Lunch.Text = lunch;
+                string morningSnack = string.Empty;
+                foreach (MorningSnack item in fd.MorningSnackItems)
+                {
+                    morningSnack += $"{item.ItemName} \r\n \r\n";
+                }
+                MorningSnack.Text = morningSnack;
 
-            string afternoonSnack = string.Empty;
-            foreach (AfternoonSnack item in fd.AfternoonSnackItems)
-            {
-                afternoonSnack += $"{item.ItemName} \r\n \r\n";
-            }
-            AfternoonSnack.Text = afternoonSnack;
+                string lunch = string.Empty;
+                foreach (Lunch item in fd.LunchItems)
+                {
+                    lunch += $"{item.ItemName} \r\n \r\n";
+                }
+                Lunch.Text = lunch;
 
-            string dinner = string.Empty;
-            foreach (Dinner item in fd.DinnerItems)
-            {
-                dinner += $"{item.ItemName} \r\n \r\n";
-            }
-            Dinner.Text = dinner;
+                string afternoonSnack = string.Empty;
+                foreach (AfternoonSnack item in fd.AfternoonSnackItems)
+                {
+                    afternoonSnack += $"{item.ItemName} \r\n \r\n";
+                }
+                AfternoonSnack.Text = afternoonSnack;
 
-            string afterDinner = string.Empty;
-            foreach (AfterDinner item in fd.AfterDinnerItems)
-            {
-                afterDinner += $"{item.ItemName} \r\n \r\n";
-            }
-            AfterDinner.Text = afterDinner;
+                string dinner = string.Empty;
+                foreach (Dinner item in fd.DinnerItems)
+                {
+                    dinner += $"{item.ItemName} \r\n \r\n";
+                }
+                Dinner.Text = dinner;
 
+                string afterDinner = string.Empty;
+                foreach (AfterDinner item in fd.AfterDinnerItems)
+                {
+                    afterDinner += $"{item.ItemName} \r\n \r\n";
+                }
+                AfterDinner.Text = afterDinner;
+            }
         }
 
         private async void GenerateNewFoodMenus(object sender, EventArgs e)
