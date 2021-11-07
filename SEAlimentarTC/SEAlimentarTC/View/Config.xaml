@@ -31,10 +31,10 @@
                     </Entry>
 
                     <StackLayout Orientation="Horizontal" Margin="10,0,0,5" HorizontalOptions="Center">
-                        <Label Text="Masculino" FontSize="Medium" VerticalOptions="Center"/>
+                        <Label Text="Masculino" FontSize="14" VerticalOptions="Center"/>
                         <CheckBox CheckedChanged="SexM_CheckedChanged" IsChecked="false" x:Name="SexM" VerticalOptions="Center"/>
 
-                        <Label Text="Feminino" FontSize="Medium" VerticalOptions="Center"/>
+                        <Label Text="Feminino" FontSize="14" VerticalOptions="Center"/>
                         <CheckBox IsChecked="false" CheckedChanged="SexF_CheckedChanged" x:Name="SexF" VerticalOptions="Center"/>
                     </StackLayout>
 

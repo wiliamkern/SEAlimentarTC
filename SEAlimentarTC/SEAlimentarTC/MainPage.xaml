@@ -30,10 +30,10 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Row="0" Grid.Column="0" BackgroundColor="#FF2C7733" FontSize="15" Text="Cardápios" Clicked="GetGenerateFoodMenuView" FontFamily="ArialRoundedMT" TextColor="White" FontAttributes="Bold" HeightRequest="100" CornerRadius="20"/>
-                    <Button Grid.Row="1" Grid.Column="0" BackgroundColor="#FF2C7733" FontSize="15" Text="Dados Pessoais" Clicked="GetConfigurationView" FontFamily="ArialRoundedMT" HeightRequest="100" TextColor="White" FontAttributes="Bold"  CornerRadius="20"/>
-                    <Button Grid.Row="0" Grid.Column="1" BackgroundColor="#FF2C7733" FontSize="15" Text="Notificações" TextColor="White" Clicked="GetAlertsView" FontFamily="ArialRoundedMT"  HeightRequest="100" FontAttributes="Bold"  CornerRadius="20"/>
-                    <Button Grid.Row="1" Grid.Column="1" BackgroundColor="#FF2C7733" FontSize="15" Text="Sobre" TextColor="White" Clicked="GetAboutView" FontFamily="ArialRoundedMT"  HeightRequest="100" FontAttributes="Bold"  CornerRadius="20"/>
+                    <Button Grid.Row="0" Grid.Column="0" BackgroundColor="#FF2C7733" FontSize="13" Text="Cardápios" Clicked="GetGenerateFoodMenuView" FontFamily="ArialRoundedMT" TextColor="White" FontAttributes="Bold" HeightRequest="100" CornerRadius="20"/>
+                    <Button Grid.Row="1" Grid.Column="0" BackgroundColor="#FF2C7733" FontSize="13" Text="Dados Pessoais" Clicked="GetConfigurationView" FontFamily="ArialRoundedMT" HeightRequest="100" TextColor="White" FontAttributes="Bold"  CornerRadius="20"/>
+                    <Button Grid.Row="0" Grid.Column="1" BackgroundColor="#FF2C7733" FontSize="13" Text="Notificações" TextColor="White" Clicked="GetAlertsView" FontFamily="ArialRoundedMT"  HeightRequest="100" FontAttributes="Bold"  CornerRadius="20"/>
+                    <Button Grid.Row="1" Grid.Column="1" BackgroundColor="#FF2C7733" FontSize="13" Text="Sobre" TextColor="White" Clicked="GetAboutView" FontFamily="ArialRoundedMT"  HeightRequest="100" FontAttributes="Bold"  CornerRadius="20"/>
                 </Grid>
             </Frame>
 
