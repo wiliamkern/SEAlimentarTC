@@ -20,8 +20,8 @@ namespace SEAlimentarTC.Repository
         public AppDbContext() // se o banco existe não faz nada, senão cria ele
         {
             //Database.EnsureDeleted();
-            Database.EnsureCreated();
-            //Database.Migrate();
+            //Database.EnsureCreated();
+            Database.Migrate();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

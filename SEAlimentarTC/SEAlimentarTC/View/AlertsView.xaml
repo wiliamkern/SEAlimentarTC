@@ -5,10 +5,22 @@
              Title="Notificações"
              Visual="Material">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <Frame BackgroundColor="#E6E6E6" CornerRadius="30" Padding="20"  HasShadow="True" Margin="30">
+                <StackLayout>
+                    <Label Text="Notificações de refeições" FontAttributes="Bold" FontSize="23" HorizontalTextAlignment="Start" Padding="10"/>
+
+                    <StackLayout Orientation="Horizontal" Margin="10,30,0,5" HorizontalOptions="Center">
+                        <Label Text="Receber notificações de refeições" FontSize="Medium" VerticalOptions="Center"/>
+                        <CheckBox  IsChecked="false" x:Name="ReceiveAlerts" VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="EndAndExpand" Padding="30" HorizontalOptions="CenterAndExpand">
+                        <Button Text="Salvar" WidthRequest="250" FontFamily="ArialRoundedMT" Clicked="SaveData" HeightRequest="60" BackgroundColor="#2C7733" CornerRadius="30"/>
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

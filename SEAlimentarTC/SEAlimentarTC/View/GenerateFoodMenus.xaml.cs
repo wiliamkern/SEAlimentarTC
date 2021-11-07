@@ -1,4 +1,5 @@
-﻿using SEAlimentarTC.Dtos;
+﻿using Acr.UserDialogs;
+using SEAlimentarTC.Dtos;
 using SEAlimentarTC.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,11 @@ namespace SEAlimentarTC.View
         {
             InitializeComponent();
 
-            FoodMenuHistory fmh = new FoodMenuHistoryModel().GetList().Where(w => w.MenuDay.Value.Date == DateTime.Now.Date).FirstOrDefault();
+            FoodMenuHistory fmh = new FoodMenuHistoryModel().GetDataByDate(DateTime.Now);
 
             if (fmh != null)
             {
-                FoodMenu fd = new FoodMenuModel().GetList().Where(w => w.FoodMenuID == fmh.FoodMenuID).FirstOrDefault();
+                FoodMenu fd = new FoodMenuModel().GetFoodMenuByID(fmh.FoodMenuID);
 
                 string breakfest = string.Empty;
                 foreach (Breakfest item in fd.BreakfestItems)
@@ -68,12 +69,17 @@ namespace SEAlimentarTC.View
             }
         }
 
-        private async void GenerateNewFoodMenus(object sender, EventArgs e)
+        private void GenerateNewFoodMenus(object sender, EventArgs e)
         {
-            // chama classe que realiza as operações de inferência em cima dos dados do banco
-            new InferenceMachine().Infer();
-
-            await App.Current.MainPage.DisplayAlert("", "Novos cardápios gerados com sucesso!", "OK");
+            Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.ShowLoading("Gerando cardápios. Por favor aguarde!", MaskType.Black));
+            _ = Task.Run(() =>
+              {
+                  new InferenceMachine().Infer();
+              }).ContinueWith(result => Device.BeginInvokeOnMainThread(async () =>
+              {
+                  UserDialogs.Instance.HideLoading();
+                  await DisplayAlert("", "Novos cardápios gerados com sucesso!", "OK");
+              }));
         }
 
         private async void GetFoodMenusHistoricList(object sender, EventArgs e)

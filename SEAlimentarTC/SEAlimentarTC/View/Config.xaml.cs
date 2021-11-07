@@ -33,6 +33,8 @@ namespace SEAlimentarTC.View
                         else
                             SexF.IsChecked = true;
                     }
+                    else
+                        DeleteButton.IsVisible = false;
                 });
             });
 
@@ -85,6 +87,8 @@ namespace SEAlimentarTC.View
                 {
                     user.InsertDate = DateTime.Now;
                     user.UserID = 1;
+                    user.ReceiveAlerts = true;
+
                     if (new UserModel().InsertUseAsync(user))
                     {
                         // faz o insert dos cardápios pré definidos

@@ -16,7 +16,14 @@ namespace SEAlimentarTC.Repository
         {
             get
             {
-                return (User)Application.Current.Properties["UserSession"];
+                try
+                {
+                    return (User)Application.Current.Properties["UserSession"];
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
             }
             set
             {

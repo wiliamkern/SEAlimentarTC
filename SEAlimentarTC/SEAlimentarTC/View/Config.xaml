@@ -42,7 +42,7 @@
 
                     <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
                         <Button Text="Salvar" WidthRequest="250" FontFamily="ArialRoundedMT" Clicked="SaveData" HeightRequest="60" BackgroundColor="#2C7733" CornerRadius="30"/>
-                        <Button Text="Deletar minha conta" WidthRequest="50" FontFamily="ArialRoundedMT" Clicked="DeleteUser" HeightRequest="40" BackgroundColor="Red" CornerRadius="30"/>
+                        <Button IsVisible="true" Text="Deletar minha conta" WidthRequest="50" FontFamily="ArialRoundedMT" x:Name="DeleteButton" Clicked="DeleteUser" HeightRequest="50" BackgroundColor="Red" CornerRadius="30"/>
                     </StackLayout>
 
                 </StackLayout>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SEAlimentarTC.Dtos;
+using SEAlimentarTC.Model;
 using SEAlimentarTC.Repository;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,9 @@ namespace SEAlimentarTC.ViewModel
             AppDataBase.FoodMenuHistory.Add(foodMenuHistory);
             int lines = AppDataBase.SaveChanges(); // lines == linhas afetadas, se houver linhas afetadas retorna true, senão false
 
+            if (LoggedModel.LoggedUser.ReceiveAlerts == true) // se o receber alertas estiver ativo, dispara para criar os alertas
+                new NotificationsHandler().GenerateFoodMenuNotification(foodMenuHistory.MenuDay.Value);
+
             return lines > 0 ? true : false;
         }
 
@@ -39,9 +43,14 @@ namespace SEAlimentarTC.ViewModel
             return list;
         }
 
-        public void GenerateAlert(DateTime day)
+        public FoodMenuHistory GetDataByDate(DateTime day)
         {
+            FoodMenuHistory data = AppDataBase.FoodMenuHistory
+                .Include(foodMenuHistory => foodMenuHistory.FoodMenuData)
+                .Where(w => w.MenuDay.Value.Date == day.Date)
+                .SingleOrDefault();
 
+            return data;
         }
     }
 }

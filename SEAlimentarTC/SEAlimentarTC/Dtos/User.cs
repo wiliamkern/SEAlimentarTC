@@ -27,6 +27,7 @@ namespace SEAlimentarTC.Dtos
         public DateTime? InsertDate { get; set; }
 
         public DateTime? UpdateDate { get; set; }
+        public bool? ReceiveAlerts { get; set; }
 
         [NotMapped]
         public string ImcFormatted { get { return Imc.HasValue ? $"Seu IMC é " + Imc.Value.ToString("N2") : string.Empty; } }

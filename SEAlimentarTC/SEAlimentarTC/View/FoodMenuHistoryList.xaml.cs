@@ -18,7 +18,7 @@ namespace SEAlimentarTC.View
         {
             InitializeComponent();
 
-            FoodMenuHistoryListData.ItemsSource = new FoodMenuHistoryModel().GetList();
+            FoodMenuHistoryListData.ItemsSource = new FoodMenuHistoryModel().GetList().OrderByDescending(o => o.MenuDay).ToList();
         }
 
         private async void ShowFoodMenu(object sender, EventArgs e)
@@ -27,7 +27,7 @@ namespace SEAlimentarTC.View
             int FoodMenuID  = (int)data.CommandParameter;
             string FoodMenuDay = data.Text;
 
-            FoodMenu fm = new FoodMenuModel().GetList().Where(w => w.FoodMenuID == FoodMenuID).FirstOrDefault();
+            FoodMenu fm = new FoodMenuModel().GetFoodMenuByID(FoodMenuID);
 
             await Navigation.PushAsync(new FoodMenuData(fm, FoodMenuDay));
         }
